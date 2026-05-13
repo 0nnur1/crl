@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vm5dpt34xyh1"]
+
+[ext_resource type="PackedScene" uid="uid://c0kdispyhr1xq" path="res://root_background/root_background.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=38071449]
+
+[node name="RootBackground" parent="." unique_id=697885443 instance=ExtResource("1_ig7tw")]

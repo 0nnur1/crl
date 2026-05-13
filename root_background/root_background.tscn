@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c0kdispyhr1xq"]
+
+[ext_resource type="Script" uid="uid://rha8gprbty7h" path="res://root_background/main_script.gd" id="1_l2q1o"]
+[ext_resource type="FontFile" uid="uid://cv4x78buf70m6" path="res://assets/fonts/UbuntuMono-Regular.ttf" id="2_vxgfc"]
+[ext_resource type="FontFile" uid="uid://dd2q71ueici4d" path="res://assets/fonts/UbuntuMono-Bold.ttf" id="3_pjg2d"]
+[ext_resource type="FontFile" uid="uid://cv5apkaxbtor7" path="res://assets/fonts/UbuntuMono-BoldItalic.ttf" id="4_v6lgo"]
+[ext_resource type="FontFile" uid="uid://bsg05l042ywaj" path="res://assets/fonts/UbuntuMono-Italic.ttf" id="5_bikrm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2q1o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrppp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dicyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yopq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxgfc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjg2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6lgo"]
+
+[node name="RootBackground" type="CanvasLayer" unique_id=697885443]
+layer = -1
+script = ExtResource("1_l2q1o")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1649201408]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.043249585, 0.11954399, 1)
+
+[node name="distro" type="ScrollContainer" parent="." unique_id=1552160012]
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="distro" unique_id=246506033]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="history" type="RichTextLabel" parent="distro/VBoxContainer" unique_id=1921895680]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_vxgfc")
+theme_override_fonts/bold_font = ExtResource("3_pjg2d")
+theme_override_fonts/bold_italics_font = ExtResource("4_v6lgo")
+theme_override_fonts/italics_font = ExtResource("5_bikrm")
+theme_override_fonts/mono_font = ExtResource("2_vxgfc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2q1o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lrppp")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="input_line" type="HBoxContainer" parent="distro/VBoxContainer" unique_id=788156560]
+layout_mode = 2
+
+[node name="prefix" type="RichTextLabel" parent="distro/VBoxContainer/input_line" unique_id=312884080]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/normal_font = ExtResource("2_vxgfc")
+theme_override_fonts/bold_font = ExtResource("3_pjg2d")
+theme_override_fonts/bold_italics_font = ExtResource("4_v6lgo")
+theme_override_fonts/italics_font = ExtResource("5_bikrm")
+theme_override_fonts/mono_font = ExtResource("2_vxgfc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dicyp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1yopq")
+bbcode_enabled = true
+text = "default:~"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="input" type="LineEdit" parent="distro/VBoxContainer/input_line" unique_id=1822741764]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+theme_override_fonts/font = ExtResource("2_vxgfc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxgfc")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_pjg2d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6lgo")
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[connection signal="gui_input" from="BG" to="." method="_on_bg_gui_input"]
+[connection signal="text_submitted" from="distro/VBoxContainer/input_line/input" to="." method="_on_input_text_submitted"]
