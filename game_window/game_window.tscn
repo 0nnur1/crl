@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b5j48bfo2va5q"]
+
+[ext_resource type="Script" uid="uid://bnn3ih8j83vhd" path="res://game_window/game_window.gd" id="1_iq8xv"]
+[ext_resource type="Script" uid="uid://v4vj41ugrilh" path="res://game_window/label.gd" id="2_u36qd"]
+[ext_resource type="FontFile" uid="uid://cv4x78buf70m6" path="res://assets/fonts/UbuntuMono-Regular.ttf" id="3_30ws5"]
+[ext_resource type="FontFile" uid="uid://dd2q71ueici4d" path="res://assets/fonts/UbuntuMono-Bold.ttf" id="4_bxsro"]
+[ext_resource type="FontFile" uid="uid://cv5apkaxbtor7" path="res://assets/fonts/UbuntuMono-BoldItalic.ttf" id="5_edg38"]
+[ext_resource type="FontFile" uid="uid://bsg05l042ywaj" path="res://assets/fonts/UbuntuMono-Italic.ttf" id="6_krdr4"]
+[ext_resource type="Texture2D" uid="uid://dlqxlgoq3l3g0" path="res://assets/sprites/-.png" id="7_edg38"]
+[ext_resource type="Texture2D" uid="uid://c74imyh1t6hfq" path="res://assets/sprites/X.png" id="8_krdr4"]
+
+[node name="GameWindow" type="ColorRect" unique_id=2109808876]
+color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+script = ExtResource("1_iq8xv")
+
+[node name="label" type="ColorRect" parent="." unique_id=792799735]
+layout_mode = 0
+offset_right = 385.0
+offset_bottom = 334.0
+color = Color(0.7784455, 0.7784456, 0.77844536, 1)
+script = ExtResource("2_u36qd")
+
+[node name="title" type="RichTextLabel" parent="label" unique_id=1992647051]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_30ws5")
+theme_override_fonts/bold_font = ExtResource("4_bxsro")
+theme_override_fonts/bold_italics_font = ExtResource("5_edg38")
+theme_override_fonts/italics_font = ExtResource("6_krdr4")
+theme_override_fonts/mono_font = ExtResource("3_30ws5")
+bbcode_enabled = true
+text = "fortnite tester9101
+"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1
+
+[node name="minimize" type="Button" parent="label" unique_id=811427520]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("4_bxsro")
+toggle_mode = true
+icon = ExtResource("7_edg38")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="close" type="Button" parent="label" unique_id=856106025]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("4_bxsro")
+icon = ExtResource("8_krdr4")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control" type="Control" parent="." unique_id=1394683053]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1720993340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 1)
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="resized" from="label" to="label" method="_on_resized"]

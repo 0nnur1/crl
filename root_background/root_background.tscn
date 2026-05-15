@@ -98,5 +98,11 @@ middle_mouse_paste_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 
+[node name="windows" type="Control" parent="." unique_id=1758702383]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="gui_input" from="BG" to="." method="_on_bg_gui_input"]
 [connection signal="text_submitted" from="distro/VBoxContainer/input_line/input" to="." method="_on_input_text_submitted"]
